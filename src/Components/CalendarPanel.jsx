@@ -118,9 +118,9 @@ const CalendarPanel = ({ view, selectedDate, appointments, setView, setSelectedD
             const renderStart = s < dayStart ? dayStart : s;
             const renderEnd = e > dayEnd ? dayEnd : e;
 
-            const top = Math.max(
+            const top = 
                   ((renderStart.getHours() * 60 + renderStart.getMinutes()) / 30) * SLOT_HEIGHT
-                );
+                ;
 
             const height = ((renderEnd.getTime() - renderStart.getTime()) / (30 * 60000)) * SLOT_HEIGHT;
             const pastAppt = isPastDateTime(e);

@@ -8,7 +8,6 @@ export default function AppointmentModal({ open, onClose, context, onSave, onUpd
   const [title, setTitle] = useState(appt.title || "");
   const [description, setDescription] = useState(appt.description || "");
   const [selectedGuests, setSelectedGuests] = useState(appt.participantIds || []);
-
   const [guestInput, setGuestInput] = useState("");
 
   const [startDate, setStartDate] = useState(appt.start ? new Date(appt.start).toISOString().slice(0,10) : "");
