@@ -1,0 +1,151 @@
+.sidebar
+  width: 390px
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9)
+  border-right: 1px solid #e2e8f0
+  padding: 1rem
+  height: 100%
+  border-radius: 5px
+  display: flex
+  flex-direction: column
+  color: #0b2d4d
+  font-family: 'Inter', 'Helvetica Neue', sans-serif
+  box-shadow: 4px 0 12px rgba(0,0,0,0.08)
+  transition: transform 0.3s ease
+  overflow-y: auto
+
+  h2
+    font-size: 1.5rem
+    margin-bottom: 0.5rem
+    font-weight: 700
+    letter-spacing: 0.5px
+    color: #0f172a
+
+  .date-range
+    font-size: 15px
+    color: #64748b
+    margin-bottom: 1rem
+    font-weight: 600
+
+  .appointments-list
+    flex: 1
+    overflow-y: auto
+    display: flex
+    flex-direction: column
+    gap: 0.5rem
+    padding-right: 0.5rem
+
+    &::-webkit-scrollbar
+      width: 6px
+    &::-webkit-scrollbar-thumb
+      background-color: rgba(0,0,0,0.15)
+      border-radius: 3px
+
+  .appointment-item
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0.65rem 0.8rem
+    border-left: 6px solid
+    border-radius: 6px
+    background: #ffffffcc
+    min-height: 60px
+    transition: all 0.2s ease
+    cursor: pointer
+    font-family: 'Inter', 'Helvetica Neue', sans-serif
+
+    &:hover
+      transform: translateY(-1px)
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12)
+
+    &.upcoming
+      border-color: #3b82f6
+
+    &.past
+      border-color: #ef4444
+      opacity: 0.6
+      cursor: default
+
+    .title
+      flex: 1
+      font-weight: 700
+      font-size: 14px
+      color: #0f172a
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+      margin-right: 0.8rem
+      display: flex
+      align-items: center
+
+    .time
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: flex-end
+      font-size: 0.85rem
+      line-height: 1.2
+      background: #f1f5f9
+      padding: 0.25rem 0.6rem
+      border-radius: 6px
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08)
+      min-width: 80px
+      font-weight: 600
+      color: #1e293b
+      transition: all 0.2s ease
+
+      .date
+        font-size: 0.75rem
+        color: #475569
+        font-weight: 500
+        margin-bottom: 5px
+
+      .start
+        font-size: 0.8rem
+        font-weight: 600
+        color: #0f172a
+        margin-bottom: 2px  // small gap between start and end
+
+      .end
+        font-size: 0.8rem
+        font-weight: 600
+        color: #0f172a
+
+.no-appointments
+  text-align: center
+  font-size: 0.85rem
+  color: #94a3b8
+  font-style: italic
+  margin-top: 2rem
+
+/* Overlay for mobile */
+.sidebar-overlay
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100vh
+  background: rgba(0,0,0,0.25)
+  z-index: 10
+
+/* Sidebar open/close for mobile */
+@media screen and (max-width: 768px)
+  .sidebar
+    position: fixed
+    top: 0
+    left: 0
+    height: 100vh
+    width: 80%
+    max-width: 280px
+    transform: translateX(-100%)
+    border-radius: 0 12px 12px 0
+    z-index: 15
+    font-size: 0.85rem
+    &.open
+      transform: translateX(0)
+
+  .appointment-item
+    .title
+      font-size: 13px
+    .time
+      font-size: 0.75rem
+      min-width: 70px

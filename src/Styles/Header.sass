@@ -1,0 +1,162 @@
+.calendar-panel-header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 1rem 1.5rem
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9)
+  border-bottom: 2px solid #dce2eb
+  border-radius: 16px 16px 0 0
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08)
+  font-family: 'Inter', sans-serif
+
+.app-name
+  font-size: 1.6rem
+  font-weight: 800
+  color: #057aefff
+  letter-spacing: 2px
+  margin-left: 0.5rem
+  white-space: nowrap
+
+  @media (max-width: 1024px)
+    font-size: 1.3rem
+  @media (max-width: 768px)
+    font-size: 1.1rem
+
+.left-section
+  display: flex
+  align-items: center
+  gap: 1rem
+  flex: 1
+  justify-content: center
+
+  .hamburger-btn
+    display: none
+    background: none
+    border: none
+    color: #057aefff
+    font-size: 1.6rem
+    cursor: pointer
+    transition: all 0.2s ease
+    &:hover
+      transform: scale(1.1)
+    @media (max-width: 1024px)
+      display: block
+
+  .nav-btn
+    background: none
+    border: none
+    font-size: 1.25rem
+    cursor: pointer
+    border-radius: 6px
+    transition: all 0.2s ease
+    &:hover
+      background: rgba(59, 130, 246, 0.1)
+      transform: translateY(-1px)
+
+  .date-display
+    font-size: 1.45rem
+    font-weight: 700
+    min-width: 180px
+    flex-shrink: 1
+    text-align: center
+    color: #0b2d4d
+    white-space: nowrap
+
+    @media screen and (max-width: 1024px)
+      font-size: 1rem
+      min-width: 120px
+    @media screen and (max-width: 768px)
+      font-size: 0.85rem
+      min-width: 90px
+
+  .today-btn
+    background: #10B981
+    color: white
+    border-radius: 8px
+    padding: 0.4rem 1rem
+    font-weight: 600
+    border: none
+    cursor: pointer
+    transition: all 0.2s ease
+    &:hover
+      background: #059669
+      transform: translateY(-2px)
+      box-shadow: 0 4px 12px rgba(16,185,129,0.3)
+
+.right-section
+  display: flex
+  align-items: center
+  gap: 0.75rem
+
+  .view-dropdown
+    appearance: none
+    padding: 0.45rem 1.5rem 0.45rem 1rem
+    font-size: 13px
+    font-weight: 700
+    border-radius: 8px
+    border: 1px solid #e5e7eb
+    cursor: pointer
+    background-color: #fff
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")
+    background-repeat: no-repeat
+    background-position: right 0.8rem center
+    background-size: 0.8rem
+    color: #1F2937
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08)
+    transition: all 0.25s ease
+    width: 90px
+    &:hover
+      border-color: #3B82F6
+      box-shadow: 0 0 8px rgba(59,130,246,0.2)
+    &:focus
+      outline: none
+      border-color: #2563eb
+      box-shadow: 0 0 10px rgba(37,99,235,0.25)
+
+  .new-appointment-btn
+    background: #F59E0B
+    color: #1F2937
+    border: none
+    padding: 0.45rem 1rem
+    border-radius: 8px
+    cursor: pointer
+    font-weight: 600
+    box-shadow: 0 4px 10px rgba(245,158,11,0.25)
+    transition: all 0.25s ease
+    &:hover
+      background: #fcd34d
+      transform: translateY(-2px)
+      box-shadow: 0 6px 14px rgba(245,158,11,0.35)
+
+/* ===== Responsive Adjustments ===== */
+@media screen and (max-width: 1024px)
+  .calendar-panel-header
+    flex-direction: column
+    align-items: stretch
+    gap: 0.5rem
+
+  .left-section
+    justify-content: space-between
+    .date-display
+      font-size: 1rem
+    .today-btn
+      padding: 0.35rem 0.8rem
+      font-size: 0.85rem
+
+@media screen and (max-width: 768px)
+  .calendar-panel-header
+    padding: 0.5rem 0.8rem
+  .left-section
+    gap: 0.3rem
+    .date-display
+      font-size: 0.8rem
+    .hamburger-btn
+      font-size: 1.5rem
+  .right-section
+    gap: 0.4rem
+    .view-dropdown
+      padding: 0.3rem 0.8rem 0.3rem 0.6rem
+      font-size: 10px
+    .new-appointment-btn
+      padding: 0.3rem 0.6rem
+      font-size: 0.75rem

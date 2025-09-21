@@ -1,0 +1,306 @@
+/* Calendar.sass (Modern Vibrant Version) */
+
+.calendar-panel-wrapper
+  display: flex
+  width:300px
+  flex-direction: column
+  flex: 1
+  background: #ffffff
+  border-radius: 10px
+  overflow: hidden
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12)
+  font-family: 'Inter', 'Segoe UI', sans-serif
+
+
+  /* === CALENDAR PANEL LAYOUT === */
+.calendar-panel
+  display: flex
+  flex-direction: column
+  width: 100%
+  height: 100% 
+  transition: all 0.3s ease
+
+  &.with-sidebar
+    .calendar-content
+      grid-template-columns: 70% 30%
+
+.calendar-content
+  display: grid
+  grid-template-columns: 100% 0
+  transition: grid-template-columns 0.35s ease-in-out
+  flex: 1
+  overflow: hidden
+
+.calendar-main
+  background: #f9fbff
+  border-right: 1px solid #e4e8f1
+  overflow-y: auto
+
+
+.new-appointment-btn
+  background: #2ecc71
+  color: #fff
+  border: none
+  padding: 0.55rem 1.2rem
+  border-radius: 10px
+  cursor: pointer
+  font-weight: 700
+  box-shadow: 0 4px 12px rgba(46,204,113,0.3)
+  transition: all 0.3s ease
+
+  &:hover
+    background: #27ae60
+    transform: translateY(-2px)
+    box-shadow: 0 6px 16px rgba(39,174,96,0.35)
+
+/* MAIN BODY */
+.calendar-body-container
+  padding: 12px
+  margin-left:10px
+  overflow: auto
+  background: #f4f7fc
+  border-radius: 0 0 16px 16px
+
+/* DAY VIEW */
+.day-view
+  display: flex
+  gap: 14px
+
+.time-col
+  width: 80px
+  display: flex
+  flex-direction: column
+  background: #e9f0ff
+  border-right: 1px solid #dce2eb
+  border-radius: 8px
+
+  .time-slot-label
+    height: 48px
+    display: flex
+    align-items: flex-start
+    justify-content: flex-end
+    padding-right: 10px
+    color: #555
+    font-size: 0.82rem
+    font-weight: 500
+    border-bottom: 1px solid #dce2eb
+
+.slots-col
+  flex: 1
+  position: relative
+  border-radius: 12px
+  background: #ffffff
+  min-height: calc(48px * 24)
+  overflow: visible   // ← changed from hidden
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.04)
+
+
+  .timeslot.past
+    background-color: #f0f0f0 !important
+    color: #888
+
+  .timeslot
+    height: 48px
+    border-bottom: 1px solid #e3e9f2
+    transition: background 0.2s ease
+
+    &:hover
+      background: #f0f4ff
+      cursor: pointer
+
+.appt-block
+  position: absolute
+  left: 4px
+  right: 4px
+  border-radius: 6px
+  padding: 4px 6px
+  font-size: 12px
+  font-weight: 500
+  overflow: hidden
+  color: #fff
+
+  &.upcoming-appt 
+    border-left: 6px solid #6bec30 // green
+    background-color: #17c9ff // default vibrant
+  
+
+  &.past-appt 
+    border-left: 6px solid #000000 // red
+    opacity: 0.85 // slight fade
+    background-color: #e92121 
+  
+
+  .appt-title 
+    font-size: 16px
+    font-weight: 600
+    margin-bottom: 5px
+    padding-top: 2px
+  
+  .appt-type 
+    font-size: 14px
+    font-weight: 600
+    margin-bottom: 5px
+
+  .appt-time 
+    font-size: 13px
+    opacity: 0.9
+  
+
+.appt-actions
+  position: absolute
+  top: 50%
+  left: 105%
+  transform: translateY(-50%)
+  display: flex
+  flex-direction: column
+  gap: 0.3rem
+  background: #1F2937
+  padding: 0.5rem
+  border-radius: 8px
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25)
+  z-index: 10
+
+  button
+    background: #3B82F6
+    color: #fff
+    border: none
+    padding: 0.3rem 0.6rem
+    border-radius: 6px
+    cursor: pointer
+    font-size: 0.85rem
+    transition: all 0.2s ease
+
+    &:hover
+      background: #2563EB
+
+
+/* WEEK & MONTH view can follow similar gradient, shadow, and vibrant adjustments */
+
+/* WEEK VIEW */
+.week-view
+  display: flex
+  flex-direction: column
+
+.week-grid-header
+  display: grid
+  grid-template-columns: 80px repeat(7, 1fr)
+  margin-bottom: 6px
+  background: #f8f9fc
+  border-bottom: 2px solid #dce2eb
+  font-weight: 600
+  color: #333
+
+.week-day-header
+  padding: 10px 0
+  text-align: center
+  font-weight: 600
+  font-size: 0.92rem
+  border-left: 1px solid #e2e6eb
+
+.week-grid-body
+  display: flex
+  overflow-x: auto
+  overflow-y: hidden
+  position: relative
+  min-height: calc(28px * 48) // full 24h × 30min slots
+  background: #9c2121
+
+.week-col
+  position: relative
+  flex: 1
+  border-left: 1px solid #ccc
+  min-height: calc(28px * 48)
+  background: #fff
+
+.week-cell
+  height: 28px
+  border-bottom: 1px solid #e2e6eb
+
+  &.past
+    background-color: #f0f0f0
+
+.appt-block.week
+  position: absolute
+  left: 6px
+  right: 6px
+  border-radius: 8px
+  background: linear-gradient(180deg, #80008b, #cceeff)
+  padding: 5px 8px
+  color: #024
+  font-weight: 600
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08)
+  transition: all 0.2s ease
+
+  &.past-appt
+    background: #bb2828
+    color: #888
+
+  &:hover
+    transform: translateY(-1px)
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12)
+
+/* MONTH VIEW */
+.month-view
+  .month-grid
+    display: grid
+    grid-template-columns: repeat(7, 1fr)
+    gap: 6px
+
+    .month-weekday
+      text-align: center
+      font-weight: 700
+      padding: 6px 0
+      color: #333
+      border-bottom: 2px solid #dce2eb
+
+    .month-cell
+      background: #fff
+      border-radius: 10px
+      padding: 8px
+      min-height: 110px
+      border: 1px solid #dce2eb
+      position: relative
+      transition: all 0.2s ease
+
+      &.past
+        background-color: #f0f0f0
+        color: #888
+
+      &.muted
+        opacity: 0.6
+        background: #f7f8fa
+
+      .month-cell-top
+        display: flex
+        justify-content: flex-end
+        font-weight: 700
+        color: #111
+
+      .month-appts
+        margin-top: 6px
+        display: flex
+        flex-direction: column
+        gap: 4px
+
+        .month-appt
+          font-size: 0.88rem
+          padding: 5px 8px
+          background: #e5f0ff
+          border-radius: 8px
+          color: #0a4b8a
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: nowrap
+          transition: all 0.15s ease
+
+          &.past-appt
+            background: #dcdcdc
+            color: #888
+
+        .month-appt:hover
+          background: #d0e4ff
+
+        .more-count
+          font-size: 0.8rem
+          color: #555
+          margin-top: 4px
